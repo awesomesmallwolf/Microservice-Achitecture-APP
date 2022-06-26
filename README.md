@@ -1,4 +1,4 @@
-#ticket-app
+# ticket-app
 
 This application is developed on TypeScript, Node.js (express.js) and Next.js with Microservice Architecture.
 
