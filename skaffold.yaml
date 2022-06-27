@@ -4,7 +4,7 @@ build:
   tagPolicy:
     sha256: {}
   artifacts:
-    - image: eu.gcr.io/ticket-app-354408/auth
+    - image: tyfr/auth
       context: auth
       sync:
         infer:
@@ -20,9 +20,11 @@ deploy:
 profiles:
   - name: cloudbuild
     build:
-      googleCloudBuild: { projectId: ticket-app-354408 }
+      local:
+        push: false
+      # googleCloudBuild: { projectId: ticket-app-354408 }
       artifacts:
-        - image: eu.gcr.io/ticket-app-354408/auth
+        - image: tyfr/auth
           context: auth
           docker:
             dockerfile: Dockerfile
@@ -32,3 +34,38 @@ profiles:
             # manual:
             #   - src: "src/**/*.ts"
             #     dest: .
+# This is for Google Cloud Build
+# apiVersion: skaffold/v2beta29
+# kind: Config
+# build:
+#   tagPolicy:
+#     sha256: {}
+#   artifacts:
+#     - image: eu.gcr.io/ticket-app-354408/auth
+#       context: auth
+#       sync:
+#         infer:
+#           - 'src/**/*.ts'
+#         # manual:
+#         #   - src: "src/**/*.ts"
+#         #     dest: .
+
+# deploy:
+#   kubectl:
+#     manifests:
+#       - ./infrastructure/k8s/*
+# profiles:
+#   - name: cloudbuild
+#     build:
+#       googleCloudBuild: { projectId: ticket-app-354408 }
+#       artifacts:
+#         - image: eu.gcr.io/ticket-app-354408/auth
+#           context: auth
+#           docker:
+#             dockerfile: Dockerfile
+#           sync:
+#             infer:
+#               - 'src/**/*.ts'
+#             # manual:
+#             #   - src: "src/**/*.ts"
+#             #     dest: .
