@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "46f42a41-be6a-4c48-aaff-19aad80402e6",
+		"name": "ticket-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8395459"
+	},
+	"item": [
+		{
+			"name": "https://ticketapp.dev/api/users/signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"password\"\r\n}"
+				},
+				"url": {
+					"raw": "https://ticketapp.dev/api/users/signup",
+					"protocol": "https",
+					"host": [
+						"ticketapp",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://ticketapp.dev/api/users/signin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"password\"\r\n}"
+				},
+				"url": {
+					"raw": "https://ticketapp.dev/api/users/signin",
+					"protocol": "https",
+					"host": [
+						"ticketapp",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://ticketapp.dev/api/users/currentuser",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://ticketapp.dev/api/users/currentuser",
+					"protocol": "https",
+					"host": [
+						"ticketapp",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"currentuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://ticketapp.dev/api/users/signout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://ticketapp.dev/api/users/signout",
+					"protocol": "https",
+					"host": [
+						"ticketapp",
+						"dev"
+					],
+					"path": [
+						"api",
+						"users",
+						"signout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
