@@ -9,6 +9,11 @@ build:
       sync:
         infer:
           - 'src/**/*.ts'
+    - image: tyfr/client
+      context: client
+      sync:
+        infer:
+          - '**/*.js'
         # manual:
         #   - src: "src/**/*.ts"
         #     dest: .
@@ -22,18 +27,23 @@ profiles:
     build:
       local:
         push: false
-      # googleCloudBuild: { projectId: ticket-app-354408 }
       artifacts:
         - image: tyfr/auth
           context: auth
           docker:
             dockerfile: Dockerfile
           sync:
-            infer:
-              - 'src/**/*.ts'
-            # manual:
-            #   - src: "src/**/*.ts"
-            #     dest: .
+            manual:
+              - src: 'src/**/*.ts'
+                dest: .
+        - image: tyfr/client
+          context: client
+          docker:
+            dockerfile: Dockerfile
+          sync:
+            manual:
+              - src: '**/*.js'
+                dest: .
 # This is for Google Cloud Build
 # apiVersion: skaffold/v2beta29
 # kind: Config
