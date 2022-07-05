@@ -44,6 +44,14 @@ profiles:
             manual:
               - src: '**/*.js'
                 dest: .
+        - image: tyfr/tickets
+          context: tickets
+          docker:
+            dockerfile: Dockerfile
+          sync:
+            manual:
+              - src: 'src/**/*.ts'
+                dest: .
 # This is for Google Cloud Build
 # apiVersion: skaffold/v2beta29
 # kind: Config
