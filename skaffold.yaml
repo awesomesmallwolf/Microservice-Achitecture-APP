@@ -9,6 +9,11 @@ build:
       sync:
         infer:
           - 'src/**/*.ts'
+    - image: tyfr/tickets
+      context: tickets
+      sync:
+        infer:
+          - 'src/**/*.ts'
     - image: tyfr/client
       context: client
       sync:

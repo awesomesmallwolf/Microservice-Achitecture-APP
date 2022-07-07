@@ -2,17 +2,18 @@ import request  from 'supertest';
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
 import app from '../app';
+import jwt from 'jsonwebtoken';
 
 // declare global {
 //   namespace NodeJS {
 //     interface Global {
-//       signin(): Promise<string[]>;
+//       signin(): string[];
 //     }
 //   }
 // }
 
 declare global {
-  var signin: () => Promise<string[]>;
+  var signIn: () => string[];
 }
 
 let mongo: any;
@@ -42,28 +43,25 @@ afterAll(async () => {
 });
 
 
-global.signin = async () => {
-  const email = 'test@test.com';
-  const password = 'password';
+global.signIn = () => {
+  // Build a JWT payload -> { id, email }
+  const payload = {
+    id: 'lasdasldsakd',
+    email: 'test@test.com'
+  };
 
-  const response = await request(app)
-    .post('/api/users/signup')
-    .send({
-      email, password
-    })
-    .expect(201);
+  // Create the JWT!
+  const token = jwt.sign(payload, process.env.JWT_KEY!);
 
-  const cookie = response.get('Set-Cookie');
+  // Build session Object. { jwt: MY_JWT }
+  const session = { jwt: token };
 
-  return cookie;
+  // Turn that session into JSON
+  const sessionJSON = JSON.stringify(session);
+
+  // Take JSON and encode it as base64
+  const base64 = Buffer.from(sessionJSON).toString('base64');
+
+  // return a string thats the cookie with the encoded data
+  return [`session=${base64}`];
 };
-
-it('responds with null if not authenticated', async () => {
-  const response = await request(app)
-    .get('/api/users/currentuser')
-    .send()
-    .expect(200);
-
-  expect(response.body.currentUser).toEqual(null);
-
-});
