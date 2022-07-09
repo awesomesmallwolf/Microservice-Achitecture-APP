@@ -18,7 +18,6 @@ it('returns a status other than 401 if the user is signed in', async () => {
     .set('Cookie', global.signIn())
     .send({});
 
-  console.log(response.status);
   expect(response.status).not.toEqual(401);
 });
 
