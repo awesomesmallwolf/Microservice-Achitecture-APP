@@ -40,6 +40,8 @@ build/Release
 # Dependency directories
 node_modules/
 auth/node_modules/
+tickets/node_modules/
+nats-demo/node_modules/
 client/node_modules/
 jspm_packages/
 
