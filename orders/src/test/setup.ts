@@ -3,14 +3,6 @@ import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import { generateRandomMongoId } from '@tayfurerkenci/common';
 
-// declare global {
-//   namespace NodeJS {
-//     interface Global {
-//       signin(): string[];
-//     }
-//   }
-// }
-
 declare global {
   var signIn: () => string[];
 }
@@ -40,8 +32,8 @@ beforeEach(async () => {
 });
 
 afterAll(async () => {
-  await mongo.stop();
   await mongoose.connection.close();
+  await mongo.stop();
 });
 
 
