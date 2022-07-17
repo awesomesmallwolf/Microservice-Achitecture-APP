@@ -3,10 +3,13 @@ import app from '../../app';
 import { Ticket } from '../../models/ticket';
 import { Order, OrderStatus } from '../../models/order';
 import { natsWrapper} from '../../nats-wrapper';
+import { generateRandomMongoId } from '@tayfurerkenci/common';
+
 
 it('marks an order as cancelled', async () => {
   // create a ticket with Ticket model
   const ticket = Ticket.build({
+    id: generateRandomMongoId(),
     title: 'concert',
     price: 20
   });
@@ -38,6 +41,7 @@ it('marks an order as cancelled', async () => {
 it('emits a order cancelled event', async () => {
     // create a ticket with Ticket model
     const ticket = Ticket.build({
+      id: generateRandomMongoId(),
       title: 'concert',
       price: 20
     });
