@@ -42,7 +42,7 @@ node_modules/
 auth/node_modules/
 tickets/node_modules/
 orders/node_modules/
-nats-demo/node_modules/
+expiration/node_modules/
 client/node_modules/
 jspm_packages/
 
