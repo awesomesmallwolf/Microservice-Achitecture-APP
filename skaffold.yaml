@@ -24,6 +24,11 @@ build:
       sync:
         infer:
           - 'src/**/*.ts'
+    - image: tyfr/payments
+      context: payments
+      sync:
+        infer:
+          - 'src/**/*.ts'
     - image: tyfr/client
       context: client
       sync:
@@ -77,6 +82,14 @@ profiles:
                 dest: .
         - image: tyfr/expiration
           context: expiration
+          docker:
+            dockerfile: Dockerfile
+          sync:
+            manual:
+              - src: 'src/**/*.ts'
+                dest: .
+        - image: tyfr/payments
+          context: payments
           docker:
             dockerfile: Dockerfile
           sync:

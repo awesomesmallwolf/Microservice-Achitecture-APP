@@ -43,6 +43,7 @@ auth/node_modules/
 tickets/node_modules/
 orders/node_modules/
 expiration/node_modules/
+payments/node_modules/
 client/node_modules/
 jspm_packages/
 
@@ -76,6 +77,7 @@ web_modules/
 # dotenv environment variables file
 .env
 .env.test
+payments/.env
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
