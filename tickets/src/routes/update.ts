@@ -31,12 +31,12 @@ validateRequest
     throw new NotFoundError();
   }
 
-  if(ticket.userId !== req.currentUser!.id){
-    throw new NotAuthorizedError();
-  }
-
   if(ticket.orderId){
     throw new BadRequestError('Cannot edit a reserved ticket');
+  }
+
+  if(ticket.userId !== req.currentUser!.id){
+    throw new NotAuthorizedError();
   }
 
   ticket.set({
@@ -44,7 +44,7 @@ validateRequest
     price: req.body.price
   });
   await ticket.save();
-  await new TicketUpdatedPublisher(natsWrapper.client).publish({
+  new TicketUpdatedPublisher(natsWrapper.client).publish({
     id: ticket.id,
     title: ticket.title,
     price: ticket.price,

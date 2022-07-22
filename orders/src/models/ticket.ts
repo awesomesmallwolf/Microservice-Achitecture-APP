@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { Order, OrderStatus } from './order';
-// import { updateIfCurrentPlugin } from 'mongoose-update-if-current'
+import { updateIfCurrentPlugin } from 'mongoose-update-if-current'
 
 interface TicketAttrs {
   id: string;
@@ -40,16 +40,16 @@ const ticketSchema = new mongoose.Schema({
 });
 
 ticketSchema.set('versionKey', 'version');
-// ticketSchema.plugin(updateIfCurrentPlugin);
+ticketSchema.plugin(updateIfCurrentPlugin);
 
-ticketSchema.pre('save', function(done){
-  // @ts-ignore
-  this.$where = {
-    version: this.get('version') - 1
-  };
+// ticketSchema.pre('save', function(done){
+//   // @ts-ignore
+//   this.$where = {
+//     version: this.get('version') - 1
+//   };
 
-  done();
-});
+//   done();
+// });
 
 // Adding build method to model
 ticketSchema.statics.build = (attrs: TicketAttrs) => {
@@ -72,14 +72,12 @@ ticketSchema.statics.findByEvent = (event: { id: string, version: number}) => {
 ticketSchema.methods.isReserved = async function() {
   // this === the ticket document that we just called 'isReserved' on
   const existingOrder = await Order.findOne({
-    ticket: this,
+    ticket: this as any,
     status: {
       $in: [
-        OrderStatus.Created,
-        OrderStatus.AwaitingPayment,
-        OrderStatus.Complete
-      ]
-    }
+        OrderStatus.Complete || OrderStatus.AwaitingPayment || OrderStatus.Created
+      ],
+    },
   });
 
   return !!existingOrder;
