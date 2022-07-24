@@ -16,4 +16,4 @@ jobs:
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - run: doctl kubernetes cluster kubeconfig save ticketapp
-      - run: kubectl apply -f infrastructure/k8s
+      - run: kubectl apply -f infrastructure/k8s && kubectl apply -f infrastructure/k8s-prod
