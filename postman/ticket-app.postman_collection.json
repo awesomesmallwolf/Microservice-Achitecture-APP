@@ -7,120 +7,342 @@
 	},
 	"item": [
 		{
-			"name": "https://ticketapp.dev/api/users/signup",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"password\"\r\n}"
+			"name": "users",
+			"item": [
+				{
+					"name": "https://ticketapp.dev/api/users/signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"password\"\r\n}"
+						},
+						"url": {
+							"raw": "https://ticketapp.dev/api/users/signup",
+							"protocol": "https",
+							"host": [
+								"ticketapp",
+								"dev"
+							],
+							"path": [
+								"api",
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://ticketapp.dev/api/users/signup",
-					"protocol": "https",
-					"host": [
-						"ticketapp",
-						"dev"
-					],
-					"path": [
-						"api",
-						"users",
-						"signup"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "https://ticketapp.dev/api/users/signin",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"password\"\r\n}"
+				{
+					"name": "https://ticketapp.dev/api/users/signin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"password\"\r\n}"
+						},
+						"url": {
+							"raw": "https://ticketapp.dev/api/users/signin",
+							"protocol": "https",
+							"host": [
+								"ticketapp",
+								"dev"
+							],
+							"path": [
+								"api",
+								"users",
+								"signin"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "https://ticketapp.dev/api/users/signin",
-					"protocol": "https",
-					"host": [
-						"ticketapp",
-						"dev"
-					],
-					"path": [
-						"api",
-						"users",
-						"signin"
-					]
+				{
+					"name": "https://ticketapp.dev/api/users/currentuser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://ticketapp.dev/api/users/currentuser",
+							"protocol": "https",
+							"host": [
+								"ticketapp",
+								"dev"
+							],
+							"path": [
+								"api",
+								"users",
+								"currentuser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://ticketapp.dev/api/users/signout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://ticketapp.dev/api/users/signout",
+							"protocol": "https",
+							"host": [
+								"ticketapp",
+								"dev"
+							],
+							"path": [
+								"api",
+								"users",
+								"signout"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "https://ticketapp.dev/api/users/currentuser",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "https://ticketapp.dev/api/users/currentuser",
-					"protocol": "https",
-					"host": [
-						"ticketapp",
-						"dev"
-					],
-					"path": [
-						"api",
-						"users",
-						"currentuser"
-					]
+			"name": "tickets",
+			"item": [
+				{
+					"name": "https://ticketapp.dev/api/tickets",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"cinema\",\r\n    \"price\": 35\r\n}"
+						},
+						"url": {
+							"raw": "https://ticketapp.dev/api/tickets",
+							"protocol": "https",
+							"host": [
+								"ticketapp",
+								"dev"
+							],
+							"path": [
+								"api",
+								"tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://ticketapp.dev/api/tickets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://ticketapp.dev/api/tickets/",
+							"protocol": "https",
+							"host": [
+								"ticketapp",
+								"dev"
+							],
+							"path": [
+								"api",
+								"tickets",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://ticketapp.dev/api/tickets",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"cinema\",\r\n    \"price\": 35\r\n}"
+						},
+						"url": {
+							"raw": "https://ticketapp.dev/api/tickets/62c9c13aab516d5ae44b5f82",
+							"protocol": "https",
+							"host": [
+								"ticketapp",
+								"dev"
+							],
+							"path": [
+								"api",
+								"tickets",
+								"62c9c13aab516d5ae44b5f82"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://ticketapp.dev/api/tickets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://ticketapp.dev/api/tickets/62c9c13aab516d5ae44b5f82",
+							"protocol": "https",
+							"host": [
+								"ticketapp",
+								"dev"
+							],
+							"path": [
+								"api",
+								"tickets",
+								"62c9c13aab516d5ae44b5f82"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
-			"name": "https://ticketapp.dev/api/users/signout",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "https://ticketapp.dev/api/users/signout",
-					"protocol": "https",
-					"host": [
-						"ticketapp",
-						"dev"
-					],
-					"path": [
-						"api",
-						"users",
-						"signout"
-					]
+			"name": "orders",
+			"item": [
+				{
+					"name": "create order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticketId\": \"62d6722da4dae3b5234ccf28\"\r\n}"
+						},
+						"url": {
+							"raw": "https://ticketapp.dev/api/orders",
+							"protocol": "https",
+							"host": [
+								"ticketapp",
+								"dev"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id order ",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://ticketapp.dev/api/orders/62d69138f90824861159d6b0",
+							"protocol": "https",
+							"host": [
+								"ticketapp",
+								"dev"
+							],
+							"path": [
+								"api",
+								"orders",
+								"62d69138f90824861159d6b0"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
+		},
+		{
+			"name": "payments",
+			"item": [
+				{
+					"name": "Create payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}"
+						},
+						"url": {
+							"raw": "https://ticketapp.dev/api/payments",
+							"protocol": "https",
+							"host": [
+								"ticketapp",
+								"dev"
+							],
+							"path": [
+								"api",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
