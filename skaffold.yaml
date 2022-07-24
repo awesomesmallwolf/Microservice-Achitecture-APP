@@ -42,6 +42,7 @@ deploy:
   kubectl:
     manifests:
       - ./infrastructure/k8s/*
+      - ./infrastructure/k8s-dev/*
 profiles:
   - name: cloudbuild
     build:
